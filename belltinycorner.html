@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>belltinycorner</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #565656;
+        background-color: #fff0f5;
+      }
+
+      header,
+      footer {
+        background-color: #84d9ba;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      header img {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        height: 100px;
+      }
+
+      nav {
+        margin-top: 1rem;
+      }
+
+      nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      h1 {
+        margin: 0.5em 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 1.5rem;
+      }
+
+      .section {
+        margin-top: 2rem;
+      }
+
+      .section h2 {
+        margin-bottom: 1rem;
+        color: #34495e;
+      }
+
+      .section p {
+        margin-bottom: 1rem;
+        color: #666;
+      }
+
+      .section img {
+        width: 100%;
+        max-width: 300px;
+        display: block;
+        margin: 0.5rem auto;
+        border-radius: 8px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      #insta {
+        font-size: 0.8rem;
+      }
+
+      #contact {
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      .contact-row {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+
+      .contact-icon {
+        text-decoration: none;
+      }
+
+      .contact-text {
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+      }
+
+      footer p {
+        font-size: 0.9rem;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        position: relative;
+        display: inline-block;
+      }
+
+      .modal-content img {
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 50%;
+      }
+
+      .close:hover,
+      .close:focus {
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      /* Price Styling */
+      .price {
+        text-align: center; /* Center the price */
+        font-weight: normal; /* Make the price unbold */
+        font-size: 1.2rem; /* Adjust the size of the price */
+        margin-top: 0.5rem; /* Space between the image and the price */
+        color: #34495e; /* Change the color of the price */
+      }
+
+      .original-price {
+        text-decoration: line-through;
+        color: #888; /* Grey color for the original price */
+        margin-right: 8px; /* Add space between original and discounted price */
+      }
+
+      .discount-price {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Modal Structure -->
+    <div id="saleModal" class="modal">
+      <div class="modal-content">
+        <button class="close" id="closeModal">&times;</button>
+        <img
+          src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/sale.jpg?v=1733905094413"
+          alt="Sale Announcement"
+        />
+      </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+      <img
+        src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/Image.jpeg?v=1732879969475"
+        alt="Flower Shop Logo"
+      />
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#prices">Prices</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Home Section -->
+      <section id="home" class="section">
+        <h2>Welcome to belltinycorner!</h2>
+        <p>
+          Find beautiful custom bouquet for every season. Christmas, Valentine,
+          New Year, etc. We have it all!
+        </p>
+        <img
+          src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/9.jpg?v=1732871083988"
+          alt="Christmas is coming"
+        />
+      </section>
+
+      <!-- Products Section -->
+      <section id="products" class="section">
+        <h2>Our Products</h2>
+
+        <div>
+          <h3>Graduation Bouquet:</h3>
+          <img
+            src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/3.jpg?v=1732871039684"
+            alt="Graduation Bouquet"
+          />
+          <p class="price">
+            <span class="original-price">$69.60</span>
+            <span class="discount-price">$58.00</span>
+          </p>
+        </div>
+
+        <div>
+          <h3>Pink Bunny:</h3>
+          <img
+            src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/4.jpg?v=1732871043855"
+            alt="Pink Bunny"
+          />
+          <p class="price">
+            <span class="original-price">$57.60</span>
+            <span class="discount-price">$48.00</span>
+          </p>
+        </div>
+
+        <div>
+          <h3>Custom Bouquet:</h3>
+          <img
+            src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/2.jpg?v=1732871035517"
+            alt="Custom Bouquet"
+          />
+          <p class="price">
+            <span class="original-price">$60.00</span>
+            <span class="discount-price">$52.00</span>
+          </p>
+        </div>
+
+        <div>
+          <h3>Custom Blue Beauty Bouquet:</h3>
+          <img
+            src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/6.jpg?v=1732871067239"
+            alt="Custom Blue Beauty Bouquet"
+          />
+          <p class="price">
+            <span class="original-price">$72.00</span>
+            <span class="discount-price">$60.00</span>
+          </p>
+        </div>
+
+        <div>
+          <h3>Tulip Bouquet with Light:</h3>
+          <img
+            src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/7.jpg?v=1732871071152"
+            alt="Tulip Bouquet with Light"
+          />
+          <p class="price">
+            <span class="original-price">$60.00</span>
+            <span class="discount-price">$50.00</span>
+          </p>
+        </div>
+
+        <div>
+          <h3>Valentine Single Heart Bouquet:</h3>
+          <img
+            src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/5.jpg?v=1732871052276"
+            alt="Valentine Single Heart Bouquet"
+          />
+          <p class="price">
+            <span class="original-price">$18.00</span>
+            <span class="discount-price">$15.00</span>
+          </p>
+        </div>
+
+        <div>
+          <h3>Frog hat:</h3>
+          <img
+            src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/10.jpg?v=1732871097829"
+            alt="Frog Hat"
+          />
+          <p class="price">
+            <span class="original-price">$26.40</span>
+            <span class="discount-price">$22.00</span>
+          </p>
+        </div>
+
+        <div>
+          <h3>Woman's Day Bouquet:</h3>
+          <img
+            src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/1.jpg?v=1732871030582"
+            alt="Woman's Day Bouquet"
+          />
+          <p class="price">
+            <span class="original-price">$42.00</span>
+            <span class="discount-price">$35.00</span>
+          </p>
+        </div>
+
+        <div>
+          <h3>Custom Santa Bouquet:</h3>
+          <img
+            src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/8.jpg?v=1732871078940"
+            alt="Custom Santa Bouquet"
+          />
+          <p class="price">
+            <span class="original-price">$42.00</span>
+            <span class="discount-price">$35.00</span>
+          </p>
+        </div>
+
+        <!-- Add more flowers here if needed -->
+      </section>
+
+      <!-- Prices Section -->
+      <section id="prices" class="section">
+        <h2>Prices</h2>
+        <img
+          src="https://cdn.glitch.global/e26bbd55-a5b3-4920-aa6d-55905e43fa29/menu.jpg?v=1732871089697"
+          alt="Prices"
+        />
+      </section>
+
+      <!-- About Us Section -->
+      <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>
+          We are a family-owned custom bouquet shop with a passion for bouquets.
+          Since 2023, we've been bringing joy and colour to our community with
+          our carefully selected designs.
+        </p>
+      </section>
+
+      <!-- Contact Us Section -->
+      <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <div class="contact-row">
+          <a
+            href="https://www.instagram.com/bell_tinycorner/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-icon"
+          >
+            <i
+              class="fab fa-instagram"
+              style="color: #e1306c; font-size: 100px"
+            ></i>
+          </a>
+
+          <a
+            href="tel:+12368339355"
+            class="contact-text"
+            style="text-decoration: none"
+          >
+            <i
+              class="fas fa-phone"
+              style="color: #4caf50; font-size: 80px"
+            ></i>
+          </a>
+
+          <a
+            href="https://g.co/kgs/N4MvNky"
+            target="_blank"
+            class="contact-icon"
+            style="text-decoration: none"
+          >
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: #84d9ba; font-size: 80px"
+            ></i>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>Developed by <strong>Rinnie Nguyen</strong></p>
+      <p>&copy; 2024 Belltinycorner. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      // Show modal on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("saleModal");
+        const closeModal = document.getElementById("closeModal");
+
+        // Display the modal
+        modal.style.display = "flex";
+
+        // Close the modal when the close button is clicked
+        closeModal.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+
+        // Close the modal when clicking outside the modal content
+        window.addEventListener("click", function (event) {
+          if (event.target === modal) {
+            modal.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
